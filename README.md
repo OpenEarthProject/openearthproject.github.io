@@ -1,1 +1,2 @@
-# openearthproject.github.io
+![logo](wordmark.png)
+# Under construction
