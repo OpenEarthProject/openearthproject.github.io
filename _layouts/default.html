@@ -1,15 +1,19 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+
+<html lang="en">
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
 		{% seo %}
+		{% feed_meta %}
 
-		<link href="https://fonts.googleapis.com/css?family=Open+Sans:300" rel="stylesheet">
+		<link rel="apple-touch-icon" href="{{ site.baseurl }}/apple-touch-icon.png">
+		<link rel="icon" type="image/png" href="{{ site.baseurl }}/touch-icon.png" sizes="192x192">
+		<link rel="icon" type="image/png" href="{{ site.baseurl }}/images/favicon.png">
+
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300|Rubik:300">
 		<link rel="stylesheet" href="{{ site.baseurl }}/css/screen.css">
-		<link rel="apple-touch-icon" sizes="180x180" href="{{ site.baseurl }}/apple-touch-icon.png">
-		<link rel="icon" type="image/png" href="{{ site.baseurl }}/favicon.png" sizes="32x32">
 
 		{% if jekyll.environment == 'production' and site.google_analytics_key != '' %}
 			<script>
@@ -20,67 +24,55 @@
 			<script async src='https://www.google-analytics.com/analytics.js'></script>
 		{% endif %}
 	</head>
+
 	<body>
-		<nav>
+		<header id="mainHeader">
 			<div class="container">
-				<a href="{{ site.baseurl }}">{% include logo.html %}</a>
+				<div class="company-name">
+					<a href="{{ site.baseurl }}/">
+						<span class="dark-logo"><img width="104" height="38" src="{{ site.baseurl }}/images/logo/dark.svg" alt="dark frisco logo"></span>
+						<span class="light-logo"><img width="104" height="38" src="{{ site.baseurl }}/images/logo/light.svg" alt="light frisco logo"></span>
+					</a>
+				</div>
+				{% include navigation.html %}
+				<p class="editor-link"><a style="display:inline;" href="cloudcannon:collections/_data/navigation.yml" class="btn"><strong>&#9998;</strong> Edit navigation</a></p>
 			</div>
-		</nav>
-		<div class="content">
-			{{ content }}
-		</div>
+		</header>
+
+		{{ content }}
+
 		<footer>
-			<p class="editor-link" style="margin-bottom: 20px;"><a href="cloudcannon:collections/_data/company.yml" class="btn"><strong>&#9998;</strong> Update footer</a></p>
 			<div class="container">
-				<div class="about">
-					<p>{{ site.data.company.mission_statement }}</p>
-				</div>
-
-				<div class="contact">
-					<address>
-						<a href="https://www.google.com/maps/place/{{ site.data.company.address | url_encode }}">
-							{% include icons/footer.html icon="place" %} {{ site.data.company.address }}
-						</a>
-					</address>
-					<p class="email">
-						<a href="mailto:{{ site.data.company.email }}">
-							{% include icons/footer.html icon="email" %} {{ site.data.company.email }}
-						</a>
-					</p>
-					<p class="phone">
-						<a href="tel:{{ site.data.company.phone | replace: ' ', '-' }}">
-							{% include icons/footer.html icon="phone" %} {{ site.data.company.phone }}
-						</a>
-					</p>
-				</div>
-
-				<div class="sharing">
-					<a class="facebook" href="https://www.facebook.com/{{ site.data.company.facebook }}">
-						{% include icons/social-media.html social_icon="facebook" %}
+				<p class="editor-link"><a href="cloudcannon:collections/_data/footer.yml" class="btn"><strong>&#9998;</strong> Edit footer</a></p>
+				<ul class="footer-left-links">
+					{% for link in site.data.footer.left_links %}
+						<li>
+							<a {% if link.new_window %}target="_blank"{% endif %} href="{% include relative-src.html src=link.link %}" {% if link.social_icon %}class="{{ link.social_icon | slugify }}-icon"{% endif %}>
+								{% if link.social_icon %}{% include social-icon.html icon=link.social_icon %}{% endif %}
+								{{ link.name }}
+							</a>
+						</li>
+					{% endfor %}
+				</ul>
+				<ul class="footer-right-links">
+					{% for link in site.data.footer.right_links %}
+						<li>
+							<a {% if link.new_window %}target="_blank"{% endif %} href="{% include relative-src.html src=link.link %}" {% if link.social_icon %}class="{{ link.social_icon | slugify }}-icon"{% endif %}>
+								{% if link.social_icon %}{% include social-icon.html icon=link.social_icon %}{% endif %}
+								{{ link.name }}
+							</a>
+						</li>
+					{% endfor %}
+				</ul>
+				<p class="copyright">
+					<a href="https://cloudcannon.com/">
+						Template by CloudCannon
 					</a>
-					<a class="twitter" href="https://twitter.com/{{ site.data.company.twitter }}">
-						{% include icons/social-media.html social_icon="twitter" %}
-					</a>
-					<a class="youtube" href="https://youtube.com/{{ site.data.company.youtube }}">
-						{% include icons/social-media.html social_icon="youtube" %}
-					</a>
-				</div>
+				</p>
 			</div>
 		</footer>
-		<p class="copyright">
-			<a href="https://cloudcannon.com/">
-				Template by CloudCannon
-			</a>
-		</p>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-		<script type="text/javascript">
-			$('a[href*=\\#]').on('click', function(event){
-				var el = $(this.hash);
-				if (el.length > 0) {
-					event.preventDefault();
-					$('html,body').animate({scrollTop:$(this.hash).offset().top}, 500);
-				}
-			});
-		</script>
+
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+		<script src="{{ site.baseurl }}/js/main.js"></script>
 	</body>
 </html>

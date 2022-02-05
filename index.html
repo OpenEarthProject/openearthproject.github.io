@@ -1,109 +1,65 @@
 ---
-layout: default
-title: Open Earth Project
+title: Home
+description: The latest app to help you find new friends with common interests.
+image: https://source.unsplash.com/j5LSbCqB1wA/2000x1322?a=.png
+bottom_image: https://unsplash.it/2000/1322?a=.png
 ---
-<header>
-	<div class="container">
-		<div class="column">
-			<div>
-				<h1 class="editable">Our Mission</h1>
-				<p class="editable">is to create student-led development opportunities by building and operating our own remote sensing spacecraft.</p>
-				<div class="button">
-					<a href="#donate">Get in touch</a>
-				</div>
+
+<section class="hero" style="background-image: url({% include relative-src.html src=page.image %})">
+	<div class="inner-hero text-container">
+		<div class="hero-text-container">
+			<h1 class="editable">Make a new friend today</h1>
+			<p class="subtext editable">Frisco helps you find new friends with common interests. Search for a new Tennis partner, find a baking side-kick or befriend a new drinking buddy.</p>
+			<div class="cta button alt"><a href="#">Join Now</a></div>
+		</div>
+	</div>
+	<div class="learn-more"><a href="#learn-more">Learn more <span class="arrow">&#x25BC;</span></a></div>
+</section>
+
+<div class="content">
+	<section class="info" id="learn-more">
+		<div class="container flex">
+			<div class="text">
+				<h2 class="editable">Introduce yourself</h2>
+				<p class="editable">Making news friends in the adult world is hard. Frisco is the perfect filter matching you the most interesting people in your area.</p>
+			</div>
+			<div class="image">
+				<img class="editable" src="http://placehold.it/650x1300" alt="Screenshot" />
 			</div>
 		</div>
-		<div class="column">
-			<img src="{{ site.baseurl }}/images/sheep.jpg" alt="Sheep">
+	</section>
+
+	<section class="info">
+		<div class="container flex">
+			<div class="text">
+				<h2 class="editable">Pick your interests</h2>
+				<p class="editable">The more you tell Frisco the better it gets to know you. Frisco matches you with people who share similar interests with you.</p>
+			</div>
+			<div class="image">
+				<img class="editable" src="http://placehold.it/650x1300" alt="Screenshot" />
+			</div>
 		</div>
-	</div>
-</header>
+	</section>
 
-<div class="container">
-	<h2 class="editable" style="text-align: center;">And we're doing this by...</h2>
-
-	<ul class="thirds">
-		<li>
-			<div class="image">{% include icons/site.html icon="population" %}</div>
-			<h3 class="editable">Exploring</h3>
-			<p class="editable">the intersection of science and engineering with public policy and the humanities. </p>
-		</li>
-
-		<li>
-			<div class="image">{% include icons/site.html icon="economy" %}</div>
-			<h3 class="editable">Developing</h3>
-			<p class="editable">hands-on skills in deisgn, business development, communications, manufacturing, management, accounting,</p>
-		</li>
-
-		<li>
-			<div class="image">{% include icons/site.html icon="conditions" %}</div>
-			<h3 class="editable">Exposing</h3>
-			<p class="editable">students to industry, academicc, and government professionals, and using industry-standard tools.</p>
-		</li>
-	</ul>
-</div>
-
-<div class="container">
-	<div class="columns">
-		<div>
-			<img src="{{ site.baseurl }}/images/sheep2.jpg" alt="Sheep">
+	<section class="info">
+		<div class="container flex">
+			<div class="text">
+				<h2 class="editable">Swipe and go</h2>
+				<p class="editable">Frisco shows you cards with people who might be a good match for friendship. Swipe left to move to the next card or right to start talking.</p>
+			</div>
+			<div class="image">
+				<img class="editable" src="http://placehold.it/650x1300" alt="Screenshot" />
+			</div>
 		</div>
-		<div>
-			<h2 class="editable">Our Projects</h2>
+	</section>
 
-			<p class="editable">Leave no sheep behind. Our mission to give sheep the right to vote and have them represented in parliament. For too long sheep have been exploited for their warm wool and delicious meat. It's time to put our hooves down and baa for what's right. Give sheep the vote!</p>
+	<section class="hero" style="background-image: url({% include relative-src.html src=page.bottom_image %})">
+		<div class="inner-hero text-container">
+			<div class="hero-text-container">
+				<h2 class="editable">Find your buddy today</h2>
+				<p class="subtext editable">It's free, fun and an exciting way to meet new people.</p>
+				<div class="cta button alt"><a href="#">Join Now</a></div>
+			</div>
 		</div>
-	</div>
-</div>
-
-<div class="container">
-	<hr>
-	<blockquote>
-		<p class="quote editable">The ultimate measure of a sheep is not where he stands in moments of comfort and convenience, but where he stands at times of challenge and controversy.</p>
-		<div class="attribute">
-			<p class="meta">
-				<span class="image"><img class="editable" src="{{ site.baseurl }}/images/wooly.jpg" alt="Wooly"></span>
-				<span class="author editable"><strong>Wooly McBaa</strong></span>
-			</p>
-		</div>
-	</blockquote>
-</div>
-
-<div class="darker">
-	<div class="container">
-		<h2 class="editable">Join us</h2>
-		<p class="editable" style="text-align: center;">Sign up to hear the latest news and progress in our fight for the sheep vote.</p>
-		<form action="{{ site.newsletter_action }}" method="post">
-			<input type="text" name="EMAIL" placeholder="Email">
-			<input type="submit" value="Sign up"/>
-		</form>
-	</div>
-</div>
-
-<div class="container" id="donate">
-	<h2 class="editable">Make a donation</h2>
-	<div class="donate">
-		{{ site.donation_embed }}
-	</div>
-</div>
-
-<div class="darker">
-	<div class="container">
-		<h2 class="editable">Updates</h2>
-		<p class="editor-link"><a href="cloudcannon:collections/_posts" class="btn"><strong>&#9998;</strong> Add Update</a></p>
-		<div class="posts">
-			{% for post in site.posts %}
-				<div class="post">
-					<div class="image" style="background-image: url({{ post.featured_image}})"></div>
-					<div class="post-content">
-						<p class="date">{{ post.date | date: '%B %d, %Y' }}</p>
-						<h3>{{ post.title }}</h3>
-
-						{{ post.content }}
-						<p class="editor-link"><a href="cloudcannon:collections/{{ post.path }}" class="btn"><strong>&#9998;</strong> Edit Update</a></p>
-					</div>
-				</div>
-			{% endfor %}
-		</div>
-	</div>
+	</section>
 </div>

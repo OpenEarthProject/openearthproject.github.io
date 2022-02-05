@@ -1,4 +1,7 @@
 ---
 name:
-image:
+position:
+image_path:
+link: 
+blurb:
 ---
